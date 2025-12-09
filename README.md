@@ -158,9 +158,7 @@ Cost control via AI quotas
 Zero-trust architecture
 Seamless enterprise integration
 
-Security Posture: Fully audited · Pentest report available under NDA
-
-Security Posture: Fully audited · Penetration test report available under NDA
+**Security Posture:** Built with security-by-design · Welcomes independent audits and penetration tests
 
 
 
