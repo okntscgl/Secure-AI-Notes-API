@@ -58,21 +58,21 @@ input RefreshTokenInput {
 
 # QUERIES
 type Query {
-    getUsers: [User!]!                       # Admin & Manager görebilir
-    getUserById(id: ID!): User               # Admin & Manager görebilir
-    getNotes: [Note!]!                       # Admin & Manager görebilir
-    getNoteById(id: ID!): Note               # Admin & Manager görebilir
-    getNotesByUser(userId: ID!): [Note!]!    # Kullanıcı kendi notlarını görebilir
+    getUsers: [User!]!                       # Visible to Admin & Manager only
+    getUserById(id: ID!): User               # Visible to Admin & Manager only
+    getNotes: [Note!]!                       # Visible to Admin & Manager only
+    getNoteById(id: ID!): Note               # Visible to Admin & Manager only
+    getNotesByUser(userId: ID!): [Note!]!    # Visible to the user’s own notes only
 }
 
 # MUTATIONS
 type Mutation {
-    register(input: RegisterInput!): TokenPair!         # Herkes kaydolabilir
-    login(input: LoginInput!): TokenPair!              # Herkes giriş yapabilir
-    refreshToken(input: RefreshTokenInput!): TokenPair!# Token yenileme
-    createNote(input: NoteInput!): Note!               # Sadece USER
-    updateNote(id: ID!, input: NoteInput!): Note!      # Owner veya Admin
-    deleteNote(id: ID!): Boolean!                      # Owner veya Admin
-    updateUser(id: ID!, name: String, email: String): User!    # Admin veya Manager
-    deleteUser(id: ID!): Boolean!                             # Admin veya Manager
+    register(input: RegisterInput!): TokenPair!         # Registration is open to everyone
+    login(input: LoginInput!): TokenPair!              # Login is open to everyone
+    refreshToken(input: RefreshTokenInput!): TokenPair!# Token refresh
+    createNote(input: NoteInput!): Note!               # User Only
+    updateNote(id: ID!, input: NoteInput!): Note!      # Owner or Admin
+    deleteNote(id: ID!): Boolean!                      # Owner or Admin
+    updateUser(id: ID!, name: String, email: String): User!    # Admin or Manager
+    deleteUser(id: ID!): Boolean!                             # Admin or Manager
 }
