@@ -137,6 +137,8 @@ Rate limit exceeded
   "error": "Daily AI quota exceeded"
 }
 
+```
+
 Backup & Disaster Recovery
 
 Daily encrypted snapshots → AWS S3 (30-day retention)
