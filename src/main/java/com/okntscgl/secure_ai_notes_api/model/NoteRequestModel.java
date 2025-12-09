@@ -7,8 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class NoteRequestModel {
 
     @Id
-    private String id; // MongoDB için id
-    private String userId; // Kullanıcı ile ilişkilendirme
+    private String id; 
+    private String userId; 
     private String title;
     private String content;
 
@@ -52,3 +52,4 @@ public class NoteRequestModel {
         this.content = content;
     }
 }
+
