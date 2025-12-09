@@ -29,7 +29,7 @@ public class UserResolver {
         this.aiService = aiService;
     }
 
-    // ===================== QUERIES =====================
+    // QUERIES 
     @QueryMapping
     public List<User> getUsers() {
         requireRole(Role.ROLE_ADMIN, Role.ROLE_MANAGER);
@@ -63,7 +63,7 @@ public class UserResolver {
         return aiService.getNotesByUser(userId);
     }
 
-    // ===================== MUTATIONS =====================
+    // MUTATIONS 
     @MutationMapping
     public TokenPair register(RegisterInput input) {
         return userService.register(input);
@@ -145,7 +145,7 @@ public class UserResolver {
         return userService.deleteUser(id);
     }
 
-    // ===================== HELPERS =====================
+    // HELPERS 
     private User getCurrentUser() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof User) {
@@ -162,3 +162,4 @@ public class UserResolver {
         throw new AccessDeniedException("You do not have permission");
     }
 }
+
