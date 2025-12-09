@@ -35,18 +35,19 @@ public class AiService {
         }
     }
 
-    // Kullanıcıya ait tüm notları döndür
+   
     public List<NoteRequestModel> getNotesByUser(String username) {
         return noteRepository.findByUserId(username);
     }
 
-    // Tek bir notu id ile çekmek istersen
+
     public Optional<NoteRequestModel> getNoteById(String id) {
         return noteRepository.findById(id);
     }
 
-    // Yeni not ekleme
+    
     public NoteRequestModel createNote(NoteRequestModel note) {
         return noteRepository.save(note);
     }
 }
+
