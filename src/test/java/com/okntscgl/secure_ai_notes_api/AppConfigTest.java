@@ -15,7 +15,8 @@ class AppConfigTest {
 
     @Test
     void contextLoads() {
-        // Spring context yüklendi mi ve JwtDecoder bean’i oluşturuldu mu kontrol ediyoruz
+       
         assertNotNull(jwtDecoder, "JwtDecoder bean should be created");
     }
 }
+
