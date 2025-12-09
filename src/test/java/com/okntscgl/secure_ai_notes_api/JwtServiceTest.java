@@ -18,11 +18,11 @@ class JwtServiceTest {
     void setup() {
         jwtService = new JwtService();
 
-        // SECRET — en az 32 byte (HMAC için zorunlu)
+      
         ReflectionTestUtils.setField(jwtService, "jwtSecret",
                 "12345678901234567890123456789012");
 
-        // Normal expiration
+
         ReflectionTestUtils.setField(jwtService, "jwtExpirationMs", 1000L * 60); // 1 minute
 
         ReflectionTestUtils.setField(jwtService, "refreshJwtExpirationMs", 1000L * 60 * 60);
@@ -67,7 +67,7 @@ class JwtServiceTest {
 
         String token = jwtService.generateToken("john");
 
-        // expiration geçmesi için 10ms bekle
+     
         Thread.sleep(10);
 
         assertThrows(ExpiredJwtException.class, () -> jwtService.extractUsernameFromToken(token));
@@ -81,3 +81,4 @@ class JwtServiceTest {
                 jwtService.extractUsernameFromToken(badToken));
     }
 }
+
