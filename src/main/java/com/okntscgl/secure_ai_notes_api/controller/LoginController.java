@@ -8,13 +8,14 @@ import java.util.Map;
 @RestController
 public class LoginController {
 
-    // Kullanıcı frontend olmadan token isteyecek
+    
     @GetMapping("/login-info")
     public Map<String, String> loginInfo() {
-        // Burada frontend yok, sadece yönlendirme veya bilgi JSON olarak dönebilir
+        
         return Map.of(
-                "message", "Kullanıcı Keycloak üzerinden login olmalı",
+                "message", "The user is required to authenticate through Keycloak.",
                 "loginUrl", "/oauth2/authorization/keycloak"
         );
     }
 }
+
