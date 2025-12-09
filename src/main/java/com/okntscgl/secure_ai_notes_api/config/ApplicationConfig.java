@@ -21,8 +21,9 @@ public class ApplicationConfig {
                 .map(user -> org.springframework.security.core.userdetails.User.builder()
                         .username(user.getUsername())
                         .password(user.getPassword())
-                        .roles(user.getRole().name().replace("ROLE_", "")) // ROLE_ prefix Spring Security otomatik ekler
+                        .roles(user.getRole().name().replace("ROLE_", "")) 
                         .build())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
     }
 }
+
