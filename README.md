@@ -126,7 +126,12 @@ Test Coverage > 92%
   "tokenUsage": 1002,
   "latencyMs": 340
 }
+
+```
+
 Rate limit exceeded
+
+```json
 
 {
   "timestamp": "2025-12-09T12:05:01Z",
