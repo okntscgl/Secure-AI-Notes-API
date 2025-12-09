@@ -112,9 +112,11 @@ CI/CD: GitHub Actions + Snyk + Trivy + Dependabot
 Test Coverage > 92%
 
 
-Sample Logs
-Successful generation
-JSON{
+## Sample Logs (Audit-Ready JSON)
+
+**Successful AI generation**
+```json
+{
   "timestamp": "2025-12-09T12:00:00Z",
   "userId": "usr_7f8d9e",
   "action": "generate_note",
@@ -125,7 +127,8 @@ JSON{
   "latencyMs": 340
 }
 Rate limit exceeded
-JSON{
+
+{
   "timestamp": "2025-12-09T12:05:01Z",
   "userId": "usr_7f8d9e",
   "action": "generate_note",
