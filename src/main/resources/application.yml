@@ -1,0 +1,37 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: demo-app
+            client-secret: SVhw4hio94wbciezmHWFKMMKC1WL8qiA
+            scope:
+              - openid
+              - profile
+              - email
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/keycloak
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8090/realms/demo-realm
+            user-name-attribute: preferred_username
+
+  ai:
+    google:
+      genai:
+        api-key: ${GEMINI_KEY}
+        project-id: ${GEMINI_ID}
+
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/secure-notes-ai
+      database: secure-notes-ai
+
+app:
+  jwt:
+    secret: 0NVXgh3lCgzmlfzjeJlvQqAxeifrLLbZKe6Vhjh8Fe0=
+    expiration-ms: 3600000
+    refresh-expiration-ms: 86400000
+
+

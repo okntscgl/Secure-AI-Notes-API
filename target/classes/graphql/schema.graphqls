@@ -1,0 +1,78 @@
+# ENUM
+enum Role {
+    ROLE_USER
+    ROLE_MANAGER
+    ROLE_ADMIN
+}
+
+# TYPES
+type User {
+    id: ID!
+    username: String!
+    name: String
+    email: String
+    role: Role!
+}
+
+type Note {
+    id: ID!
+    userId: ID!
+    title: String!
+    content: String!
+    createdAt: String!
+}
+
+type TokenPair {
+    accessToken: String!
+    refreshToken: String!
+}
+
+type ApiResponse {
+    timestamp: String!
+    status: Int!
+    message: String!
+    data: String
+    error: String
+}
+
+# INPUTS
+input RegisterInput {
+    username: String!
+    password: String!
+    role: Role!
+}
+
+input LoginInput {
+    username: String!
+    password: String!
+}
+
+input NoteInput {
+    title: String!
+    content: String!
+}
+
+input RefreshTokenInput {
+    refreshToken: String!
+}
+
+# QUERIES
+type Query {
+    getUsers: [User!]!                       # Admin & Manager görebilir
+    getUserById(id: ID!): User               # Admin & Manager görebilir
+    getNotes: [Note!]!                       # Admin & Manager görebilir
+    getNoteById(id: ID!): Note               # Admin & Manager görebilir
+    getNotesByUser(userId: ID!): [Note!]!    # Kullanıcı kendi notlarını görebilir
+}
+
+# MUTATIONS
+type Mutation {
+    register(input: RegisterInput!): TokenPair!         # Herkes kaydolabilir
+    login(input: LoginInput!): TokenPair!              # Herkes giriş yapabilir
+    refreshToken(input: RefreshTokenInput!): TokenPair!# Token yenileme
+    createNote(input: NoteInput!): Note!               # Sadece USER
+    updateNote(id: ID!, input: NoteInput!): Note!      # Owner veya Admin
+    deleteNote(id: ID!): Boolean!                      # Owner veya Admin
+    updateUser(id: ID!, name: String, email: String): User!    # Admin veya Manager
+    deleteUser(id: ID!): Boolean!                             # Admin veya Manager
+}
