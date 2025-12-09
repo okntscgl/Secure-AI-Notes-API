@@ -28,7 +28,7 @@ public class AuthService {
         this.jwtService = jwtService;
     }
 
-    // ===================== REGISTER =====================
+    // REGISTER 
     public TokenPair register(RegisterRequest request) {
         if (userService.existsByUsername(request.getUsername())) {
             throw new RuntimeException("Username already exists");
@@ -41,14 +41,14 @@ public class AuthService {
 
         userService.createUser(user);
 
-        // Kayıt sonrası token üretimi
+      
         String accessToken = jwtService.generateToken(user.getUsername());
         String refreshToken = jwtService.generateRefreshToken(user.getUsername());
 
         return new TokenPair(accessToken, refreshToken);
     }
 
-    // ===================== LOGIN =====================
+    // LOGIN 
     public TokenPair login(LoginRequest request) {
         // Authentication
         authenticationManager.authenticate(
@@ -60,14 +60,14 @@ public class AuthService {
 
         User user = userService.findByUsername(request.getUsername());
 
-        // Token üretimi
+   
         String accessToken = jwtService.generateToken(user.getUsername());
         String refreshToken = jwtService.generateRefreshToken(user.getUsername());
 
         return new TokenPair(accessToken, refreshToken);
     }
 
-    // ===================== REFRESH TOKEN =====================
+    // REFRESH TOKEN 
     public TokenPair refreshToken(String refreshToken) {
         String username = jwtService.extractUsernameFromToken(refreshToken);
 
@@ -83,3 +83,4 @@ public class AuthService {
         return new TokenPair(accessToken, newRefreshToken);
     }
 }
+
