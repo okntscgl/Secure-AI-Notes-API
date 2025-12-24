@@ -22,6 +22,17 @@ Secure AI Notes API is an enterprise-ready backend that combines:
 
 Designed for **OWASP 2025, GDPR, HIPAA, SOC2 and ISO 27001** compliance from day one.
 
+### Why This Project?
+
+Most AI-enabled systems prioritize features first and attempt to add security later.  
+This project takes the opposite approach: **security, compliance, and auditability are first-class concerns**.
+
+The goal is to demonstrate how a backend engineer designs AI systems that are:
+- Abuse-resistant
+- Cost-controlled
+- Auditable
+- Production-ready
+
 ---
 
 ## Quick Start – Run in 2 Minutes
