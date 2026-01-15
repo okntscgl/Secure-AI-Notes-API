@@ -38,6 +38,7 @@ The goal is to demonstrate how a backend engineer designs AI systems that are:
 ## Quick Start – Run in 2 Minutes
 
 ```bash
+
 # 1. Clone the repository
 git clone https://github.com/okntscgl/secure-ai-notes-api.git
 cd secure-ai-notes-api
